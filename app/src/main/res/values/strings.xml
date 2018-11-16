@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProjectBootstrap</string>
+    <string name="loading">loading</string>
+    <string name="yourRandomNumberIs">Your random number is: %s</string>
+</resources>
