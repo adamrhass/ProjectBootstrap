@@ -13,7 +13,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,17 +32,17 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.1'
-    //def anko_version = '0.10.7'
-    //implementation "org.jetbrains.anko:anko:$anko_version"
-    //implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
+
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
 
-    //implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 
+    //validation
+    implementation "com.wajahatkarim3.easyvalidation:easyvalidation-core:1.0.1"
 
     def lifecycle_version = "2.0.0"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"

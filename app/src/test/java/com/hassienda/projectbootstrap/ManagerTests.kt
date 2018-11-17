@@ -42,7 +42,7 @@ class ManagerTests {
     @Test
     fun test_getPostsFailure(){
         val repo = Mockito.mock(IPostsRepo::class.java)
-        Mockito.`when`(runBlocking {  repo. getPosts() }).thenReturn( Result.Error("") )
+        Mockito.`when`(runBlocking {  repo. getPosts() }).thenReturn( Result.Error("error") )
 
         var posts = runBlocking {
             BootstrapManager(repo).getPosts()
@@ -54,7 +54,7 @@ class ManagerTests {
     fun test_getPostSuccess(){
         //Prepare
         val repo = Mockito.mock(IPostsRepo::class.java)
-        Mockito.`when`(runBlocking {  repo. getPost(Mockito.anyInt()) }).thenReturn( Result.Success(Post()))
+        Mockito.`when`(runBlocking {  repo. getPost(Mockito.anyInt()) }).thenReturn( Result.Success(Post(1, 2, "post title", "post body")))
 
         var posts = runBlocking {
             BootstrapManager(repo).getPost(1)

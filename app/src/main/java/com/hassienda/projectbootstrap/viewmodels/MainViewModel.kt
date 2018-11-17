@@ -15,11 +15,8 @@ class MainViewModel(
     val requestNumberAction = AsyncAction{
         bootManager.getSlowRandomNumber()
     }
-    class PostItemModel(val post:Post)
-    {
-        fun select(){}
-    }
 
+    //region POSTS
     // get all posts
     val posts = AsyncAction{
         bootManager.getPosts()
@@ -41,4 +38,5 @@ class MainViewModel(
             bootManager.getPost(it)
         }
     }
+    //endregion
 }
