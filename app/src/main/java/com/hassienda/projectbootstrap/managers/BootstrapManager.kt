@@ -10,12 +10,15 @@ import kotlinx.coroutines.delay
 class BootstrapManager(
     val postsRepo:IPostsRepo = iocGet(IPostsRepo::class.java)
 ):IBootstrapManager {
+    //region Random Number
     override suspend fun getSlowRandomNumber(): Result<Int> {
         delay(3000)
         val num =  (Math.random() * 100).toInt()
         return if(num <= 50) Result.Success(num) else Result.Error("Cannot return number over 50")
     }
+    //endregion
 
+    //region Posts
     override suspend fun getPosts(): Result<List<Post>>
     {
         return postsRepo.getPosts()
@@ -23,4 +26,5 @@ class BootstrapManager(
     override suspend fun getPost(id:Int): Result<Post> {
         return postsRepo.getPost(id)
     }
+    //endregion
 }

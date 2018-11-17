@@ -14,29 +14,5 @@ class MainViewModel(
     //The view will call this method when it wants a new number
     val requestNumberAction = AsyncAction{
         bootManager.getSlowRandomNumber()
-    }
-
-    //region POSTS
-    // get all posts
-    val posts = AsyncAction{
-        bootManager.getPosts()
-    }.also { it.run() }
-
-
-
-    val selectedPostId = MutableLiveData<Int>()
-    fun selectPostById(id:Int?){
-        selectedPostId.value = id
-        if(id != null){
-            selectedPost.run()
-        }
-    }
-
-    // get a post
-    val selectedPost = AsyncAction{
-        selectedPostId.value?.let {
-            bootManager.getPost(it)
-        }
-    }
-    //endregion
+    }.also { it.data.value = 0 }
 }

@@ -8,42 +8,38 @@
         <variable
             name="vm"
             type="com.hassienda.projectbootstrap.viewmodels.MainViewModel"/>
+        <variable
+                name="postsVm"
+                type="com.hassienda.projectbootstrap.viewmodels.PostsViewModel"/>
+        <variable
+                name="formVm"
+                type="com.hassienda.projectbootstrap.viewmodels.FormViewModel"/>
     </data>
-    <RelativeLayout
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="15dp"
             tools:context=".MainActivity">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Get Number"
-                android:onClick="@{_ -> vm.requestNumberAction.run()}"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{safeUnbox(vm.requestNumberAction.running) ? @string/loading : `your number is:` + vm.requestNumberAction.data}"
-                    />
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                itemLayoutId="@{ @layout/post_list_item }"
-                parentVm="@{ vm }"
-                items="@{ vm.posts.data }"/>
-            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Get Post"
-                    android:onClick="@{_ -> vm.selectPostById(1)}"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{ vm.selectedPost.data.title }"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/getNumber"-->
+                <!--android:onClick="@{_ -> vm.requestNumberAction.run()}"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@{safeUnbox(vm.requestNumberAction.running) ? @string/loading : `your number is:` + vm.requestNumberAction.data}"-->
+                    <!--/>-->
+            <include layout="@layout/header" title="@{ @string/posts }"/>
+            <include layout="@layout/posts_view" vm="@{ postsVm }"/>
+
+            <include layout="@layout/header" title="@{ @string/form }"/>
+            <include layout="@layout/form_view" vm="@{ formVm }"/>
+
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
 </layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
+        <import type="android.text.InputType"/>
+        <variable
+                name="formItem"
+                type="com.hassienda.projectbootstrap.viewmodels.form.BaseValidatableLiveData&lt;String>"/>
+        <variable name="hint" type="String"/>
+        <variable name="isPassword" type="Boolean"/>
+    </data>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@{ hint }"
+            app:errorEnabled="@{ !formItem.isValid }"
+            app:error="@{ formItem.reason }"
+            >
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{ formItem.data }"
+                android:onTextChanged="@{(cs, a, b, c) -> formItem.setData(cs.toString()) }"
+                android:inputType='@{safeUnbox(isPassword) ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD) : InputType.TYPE_CLASS_TEXT }'
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>

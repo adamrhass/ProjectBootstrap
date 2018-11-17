@@ -9,7 +9,7 @@
             type="com.hassienda.projectbootstrap.models.Post"/>
         <variable
             name="vm"
-            type="com.hassienda.projectbootstrap.viewmodels.MainViewModel"/>
+            type="com.hassienda.projectbootstrap.viewmodels.PostsViewModel"/>
     </data>
     <RelativeLayout
             android:layout_width="match_parent"
