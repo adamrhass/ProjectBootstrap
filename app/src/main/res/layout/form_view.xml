@@ -24,7 +24,8 @@
                  app:isPassword="@{true}"/>
 
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Submit"
-        android:enabled="@{ vm.formIsValid }"/>
+            android:text="@string/submit"
+            android:enabled="@{ vm.formIsValid &amp;&amp; !vm.submit.running }"
+            android:onClick="@{ _ -> vm.submit.run() }"/>
     </LinearLayout>
 </layout>

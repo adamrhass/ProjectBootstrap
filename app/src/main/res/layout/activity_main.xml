@@ -24,16 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/getNumber"-->
-                <!--android:onClick="@{_ -> vm.requestNumberAction.run()}"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@{safeUnbox(vm.requestNumberAction.running) ? @string/loading : `your number is:` + vm.requestNumberAction.data}"-->
-                    <!--/>-->
+            
             <include layout="@layout/header" title="@{ @string/posts }"/>
             <include layout="@layout/posts_view" vm="@{ postsVm }"/>
 

@@ -11,5 +11,6 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="invalidEmail">Invalid email</string>
-    <string name="atLeastOneLowerCase">Password needs at least one lower case</string>
+    <string name="submit">Submit</string>
+
 </resources>
